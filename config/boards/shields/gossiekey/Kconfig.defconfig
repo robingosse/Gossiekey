@@ -1,0 +1,17 @@
+if SHIELD_GOSSIEKEY_LEFT
+
+# Name must be less than 16 characters long!
+config ZMK_GOSSIEKEY
+    default "GOSSIEKEY"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_GOSSIEKEY_LEFT || SHIELD_GOSSIEKEY_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
