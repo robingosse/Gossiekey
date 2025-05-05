@@ -17,20 +17,30 @@ jobs:
       - name: Checkout config
         uses: actions/checkout@v4
 
-      - name: Initialize west
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install West
+        run: |
+          python -m pip install --upgrade pip
+          pip install west
+
+      - name: Initialize West
         run: west init -l config
 
-      - name: Update west modules
+      - name: Update Modules
         run: west update
 
-      - name: Export Zephyr CMake package
+      - name: Export Zephyr
         run: west zephyr-export
 
       - name: Build firmware
         run: |
           west build -s app -b nice_nano_v2 -- -DSHIELD=${{ matrix.shield }} -DZMK_CONFIG=./config
 
-      - name: Upload firmware UF2
+      - name: Upload firmware
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.shield }}
