@@ -1,36 +1,32 @@
 name: Build ZMK Firmware
 
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    name: Build Left and Right
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         shield: [gossiekey_left, gossiekey_right]
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.10
+          python-version: '3.10'
 
       - name: Install west and dependencies
         run: |
           pip install west
-          sudo apt-get update
-          sudo apt-get install -y ninja-build gperf ccache dfu-util device-tree-compiler wget
+          sudo apt update
+          sudo apt install -y ninja-build gperf ccache dfu-util device-tree-compiler wget
           west --version
 
       - name: Initialize west
-        run: west init -l config
+        run: west init -l app
 
       - name: Update west modules
         run: west update
