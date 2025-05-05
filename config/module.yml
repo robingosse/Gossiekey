@@ -1,4 +1,0 @@
-name: my-config
-build:
-  settings:
-    board_root: .

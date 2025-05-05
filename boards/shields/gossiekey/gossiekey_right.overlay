@@ -1,18 +1,3 @@
-/*
-    &kscan0 {
-        label = "KSCAN";
-        matrix-row-count = <7>;
-        matrix-col-count = <5>;
-        input-gpios = <...>;
-        output-gpios = <...>;
-        drive-pins;
-        diode-direction = "row2col";
-        &default_transform {
-        col-offset = <5>;
-        }
-    };
-*/
-
 #include "gossiekey.dtsi" // (Your matrix transform file)
 
 &kscan0 {
