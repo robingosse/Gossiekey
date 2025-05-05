@@ -1,4 +1,4 @@
-name: Build ZMK Firmware
+name: ZMK Firmware Build
 
 on:
   push:
@@ -7,6 +7,7 @@ on:
 
 jobs:
   build:
+    name: Build Left and Right
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -14,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout config
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Initialize west
         run: west init -l config
@@ -29,8 +30,8 @@ jobs:
         run: |
           west build -s app -b nice_nano_v2 -- -DSHIELD=${{ matrix.shield }} -DZMK_CONFIG=./config
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
+      - name: Upload firmware UF2
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.shield }}
           path: build/zephyr/zmk.uf2
