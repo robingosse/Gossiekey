@@ -1,16 +1,14 @@
-name: Build ZMK Firmware
+name: ZMK Firmware Build
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 jobs:
   build:
-    name: Build Left and Right Firmware
+    name: Build Left and Right
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         shield: [gossiekey_left, gossiekey_right]
@@ -20,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Build ZMK firmware
-        uses: zmkfirmware/zmk-build-action@v1
+        uses: zmkfirmware/zmk-build-action@c5c823dd9d5f6e3ad99328ac476ffb3ec7b80e42  # <- locked commit
         with:
           board: nice_nano_v2
           shield: ${{ matrix.shield }}
