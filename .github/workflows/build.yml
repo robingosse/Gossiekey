@@ -1,37 +1,27 @@
-name: ZMK Firmware Build
+name: Build ZMK Firmware
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
-  build-left:
-    name: Build Left Half
+  build:
+    name: Build Left and Right Firmware
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        shield: [gossiekey_left, gossiekey_right]
+
     steps:
-      - name: Checkout repo
+      - name: Checkout config
         uses: actions/checkout@v3
 
-      - name: Build left firmware
-        uses: zmkfirmware/zmk-docker-build@v2
+      - name: Build ZMK firmware
+        uses: zmkfirmware/zmk-build-action@v1
         with:
           board: nice_nano_v2
-          shield: gossiekey_left
+          shield: ${{ matrix.shield }}
           config-path: config
-          archive-name: gossiekey_left
-
-  build-right:
-    name: Build Right Half
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Build right firmware
-        uses: zmkfirmware/zmk-docker-build@v2
-        with:
-          board: nice_nano_v2
-          shield: gossiekey_right
-          config-path: config
-          archive-name: gossiekey_right
