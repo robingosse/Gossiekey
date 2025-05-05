@@ -1,0 +1,14 @@
+/ {
+  keymap {
+    compatible = "zmk,keymap";
+
+    default_layer {
+      bindings = <
+        &kp kp_01  &kp kp_02  &kp kp_03  &kp kp_04  &kp kp_05
+        &kp kp_11  &kp kp_12  &kp kp_13  &kp kp_14  &kp kp_15
+        &kp kp_21  &kp kp_22  &kp kp_23  &kp kp_24  &kp kp_25
+        &kp kp_31  &kp kp_32  &kp kp_33  &kp kp_34  &kp kp_35
+      >;
+    };
+  };
+};
