@@ -1,4 +1,4 @@
-name: Build Firmware
+name: ZMK Firmware Build
 
 on:
   push:
@@ -6,23 +6,32 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-left:
+    name: Build Left Half
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-      - name: Build left half
-        uses: zmkfirmware/zmk-build-action@v3
+      - name: Build left firmware
+        uses: zmkfirmware/zmk-docker-build@v2
         with:
           board: nice_nano_v2
           shield: gossiekey_left
-          config_path: config
-          name: gossiekey_left
+          config-path: config
+          archive-name: gossiekey_left
 
-      - name: Build right half
-        uses: zmkfirmware/zmk-build-action@v3
+  build-right:
+    name: Build Right Half
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Build right firmware
+        uses: zmkfirmware/zmk-docker-build@v2
         with:
           board: nice_nano_v2
           shield: gossiekey_right
-          config_path: config
-          name: gossiekey_right
+          config-path: config
+          archive-name: gossiekey_right
