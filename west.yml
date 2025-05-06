@@ -24,7 +24,7 @@ manifest:
     - name: zmk
       remote: zmkfirmware
       revision: main
-      import: app/west.yml
+      import: west.yml
 
   self:
-    path: Gossiekey
+    path: 
