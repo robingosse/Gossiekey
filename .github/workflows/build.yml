@@ -14,8 +14,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          path: Gossiekey
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -34,7 +32,6 @@ jobs:
 
       - name: Update west modules
         run: west update
-        working-directory: Gossiekey
 
       - name: Export Zephyr CMake package
         run: west zephyr-export
