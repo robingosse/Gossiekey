@@ -36,7 +36,7 @@ jobs:
 
       - name: Build firmware
         run: |
-          west build -s zmk/app -b nice_nano_v2 -- -DSHIELD=${{ matrix.shield }} -DZMK_CONFIG=./config
+          west build -s zmk/app -b nice_nano_v2 --pristine -- -DSHIELD=${{ matrix.shield }} -DZMK_CONFIG=./config
 
       - name: Upload firmware
         uses: actions/upload-artifact@v4
