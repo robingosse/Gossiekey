@@ -5,8 +5,15 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: myfork
+      url-base: https://github.com/robingosse  # ← Change this to your GitHub username
 
   projects:
+    - name: nanopb
+      remote: myfork
+      revision: nanopb  # ← Replace with your fork branch, e.g., "main" or "module-fix"
+      path: modules/lib/nanopb    # ← Use the same path ZMK expects
+
     - name: zephyr
       remote: zmkfirmware
       revision: main
