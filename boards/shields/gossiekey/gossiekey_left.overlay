@@ -1,0 +1,12 @@
+#include "gossiekey.dtsi" // The shared dtsi file is included in the overlay
+
+// Label of the kscan node in the dtsi
+&kscan0 {
+    col-gpios
+        = <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio1 00 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        ;
+};
