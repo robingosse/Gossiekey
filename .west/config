@@ -1,5 +1,5 @@
 [manifest]
-path = Gossiekey
+path = keyboard
 file = west.yml
 
 [zephyr]
