@@ -3,24 +3,45 @@
 / {
     chosen {
         zmk,physical-layout = &physical_layout0;
+        // Other chosen items
     };
-    
+};
+
+/ {    
     physical_layout0: physical_layout_0 { // First physical layout, use different naming for other layouts
         compatible = "zmk,physical-layout";
         display-name = "Default Layout";
         kscan = <&kscan0>; // Label of the kscan node, optional if all layouts use the same
         transform = <&default_transform>; // Label of the matrix transform for this layout
     };
+};
+
+/ {  
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "row2col";
-    };
+        diode-direction = "col2row";
+        wakeup-source;
 
+        row-gpios
+            = <&gpio0 11 GPIO_ACTIVE_HIGH>
+            , <&gpio1 04 GPIO_ACTIVE_HIGH>
+            , <&gpio1 06 GPIO_ACTIVE_HIGH>
+            , <&gpio0 19 GPIO_ACTIVE_HIGH>
+            , <&gpio0 21 GPIO_ACTIVE_HIGH>
+            , <&gpio0 23 GPIO_ACTIVE_HIGH>
+            , <&gpio0 12 GPIO_ACTIVE_HIGH>
+            ;
+
+    };
+};
+
+/ { 
+            
     default_transform: keymap_transform0 {
         compatible = "zmk,matrix-transform";
-        columns = <10>; /* 5 left + 5 right */
-        rows = <7>;     /* 7 rows total (as you originally described) */
+        rows = <10>; /* 5 left + 5 right */
+        columns = <7>;     /* 7 rows total (as you originally described) */
         map = <
         //  Lkey1   Lkey2   Lkey3   Lkey4   Lkey5       RKey1   RKey2   RKey3   RKey4   RKey5
             RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4)     RC(0,5) RC(0,6) RC(0,7) RC(0,8) RC(0,9) // Switch 1
@@ -32,4 +53,6 @@
             RC(6,0) RC(6,1) RC(6,2) RC(6,3) RC(6,4)     RC(6,5) RC(6,6) RC(6,7) RC(6,8) RC(6,9) // Switch 7
         >;
     };
+            
+
 };

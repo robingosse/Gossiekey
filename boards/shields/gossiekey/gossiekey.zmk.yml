@@ -3,7 +3,7 @@ id: gosseykey
 name: GossieKey
 type: shield
 url: "Custom joystick-style split keyboard"
-requires: [nice_nano]
+requires: [nice_nano v2]
 features:
   - keys
 siblings:

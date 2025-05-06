@@ -1,11 +1,10 @@
 if SHIELD_GOSSIEKEY_LEFT
 
+# Name must be less than 16 characters long!
 config ZMK_GOSSIEKEY
-    string "Shield Name (max 15 chars)"
     default "GOSSIEKEY"
 
 config ZMK_SPLIT_ROLE_CENTRAL
-    bool "Enable central role on left half"
     default y
 
 endif
@@ -13,7 +12,6 @@ endif
 if SHIELD_GOSSIEKEY_LEFT || SHIELD_GOSSIEKEY_RIGHT
 
 config ZMK_SPLIT
-    bool "Enable split keyboard"
     default y
 
 endif
