@@ -8,15 +8,6 @@
         default_layer {
             bindings = <
 
-                &kp A &kp B &kp C &kp D &kp E
-                &kp F &kp G &kp H &kp I &kp J
-                &kp K &kp L &kp M &kp N &kp O
-                &kp P &kp Q &kp R &kp S &kp T
-                &kp U &kp V &kp W &kp X &kp Y
-                &kp Z &kp 1 &kp 2 &kp 3 &kp 4
-                &kp 5 &kp 6 &kp 7 &kp 8 &kp 9
-            >;
-
                 &kp RR?1   &kp RRC   &kp RR?2   &kp RR?3   &kp RR?4           &kp LT?1  &kp LT3D  &kp LT3?2   &kp LT3?3   &kp LT3?4
                 &kp RP?1   &kp RPC   &kp RP?2   &kp RP?3   &kp RP?4           &kp LI?1  &kp LIU   &kp LI?2    &kp LI?3    &kp LI?4
                 &kp RT3?1  &kp RT3C  &kp RT3?2  &kp RT3?3  &kp RT3?4          &kp LT?1  &kp LT1D  &kp LT1?2   &kp LT1?3   &kp LT1?4
@@ -24,7 +15,7 @@
                 &kp RT1?1  &kp RT1C  &kp RT1?2  &kp RT1?3  &kp RT1?4          &kp LM?1  &kp LMU   &kp LM?2    &kp LM?3    &kp LM?4
                 &kp RM?1   &kp RMC   &kp RM?2   &kp RM?3   &kp RM?4           &kp LR?1  &kp LRU   &kp LR?2    &kp LR?3    &kp LR?4
                 &kp RT2?1  &kp RT2C  &kp RT2?2  &kp RT2?3  &kp RT2?4          &kp LP?1  &kp LPU   &kp LP?2    &kp LP?3    &kp LP?4            >;
-
+            >;
         };
     };
 };
