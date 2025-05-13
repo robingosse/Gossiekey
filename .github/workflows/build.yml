@@ -1,6 +1,9 @@
 name: Build ZMK Firmware
 
-on: [push, pull_request, workflow_dispatch]
+on: 
+  push:
+    branches:
+      - 05may2025
 
 jobs:
   build:
